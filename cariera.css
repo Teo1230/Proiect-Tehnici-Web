@@ -1,0 +1,10 @@
+img{
+    width: 350px;
+    height: 350px;
+}
+#previousbtn{
+    margin-right: 75px;;
+}
+#nextbtn{
+    margin-left: 75px;
+}

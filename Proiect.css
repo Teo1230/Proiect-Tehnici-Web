@@ -154,6 +154,7 @@ div.gallery:hover {
 div.gallery img {
   width: 100%;
   height: auto;
+  
 }
 
 div.desc {
@@ -216,7 +217,42 @@ html {
 }
 #btn:hover
 {
-  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+  background-image: linear-gradient(to right,indigo,violet);
 }
 
- 
+img{
+  width: 350px;
+  height: 350px;
+}
+input {
+  margin-bottom: 8px;
+}
+
+input:not([type="radio"]):not([type="checkbox"]) {
+  display: block;
+}
+#detalii
+{
+  font-size: 35px;
+  color: aquamarine;
+}
+.pressed{
+  background-color: gold;
+}
+#con
+{
+  display: none;
+}
+#text
+{
+  font-size: 2rem;
+}
+#link
+{
+  font-size: 2rem;
+}
+.box {
+  background: white;
+  width: 80vw;
+  margin-left: 10vw;
+}

@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="C:\Users\teomi\Desktop\Proiect TW\Proiect.css">
-  <script src="Proiect.js"></script>
+  <script src="Proiect.js" defer></script>
+ 
   <title>Proiect</title>
 </head>
 
-<body>
+<body onclick="myFunction(event)">
   <h1 class="titlu"> Yves Saint Laurent</h1>
-  <div id="topnav">
+  <p id="data" style="width:250px; height:15px; padding:16px; border:1px solid black;"></p>
+  <div id="topnav" onscroll="numar()">
 
 
     <div class="topnav-centered">
@@ -77,13 +79,13 @@
   </button>
    
     
-  <div>
+  <div >
 
     <div id="continut2">
 `
-      <div class="gallery">
+      <div class="gallery" onmousedown="WhichButton(event)">
 
-        <img src="3.jpg" width="600" height="400">
+        <img id ="popza1"src="3.jpg" width="600" height="400">
 
         <div class="desc" id="image">Add a description of the image here</div>
       </div>
@@ -113,20 +115,46 @@
       <img src="7.jpg" width="600" height="400">
       <div class="desc"id="image">Add a description of the image here</div>
     </div>
+    <div class="gallery">
+
+      <img src="8.jpg" width="600" height="400">
+      <div class="desc"id="image">Add a description of the image here</div>
+      
+
+    </div>
+     
+     
 
   </div>
 
-  <div id="articlec"></div>
-  <div id="continut2">
-    <p class="actions">
-      <button id="addarticle">Adauga articol</button>
-      <button id="removearticle">Șterge articol</button>
-      <span class="spacer"></span>
-      <button id="smallerFont">-</button>
-      <button id="biggerFont">+</button>
-    </p>
-  </div>
+
+  <button onclick="ascunde()">Parere</button>
+  <div id="con">
+  <div id="detalii"></div>
+  <form id="form">
+    <input type="text" value="Observatii" name="text"/>
+    <input type="email" placeholder="Email..." name="email" id="e" />
+    <input type="text" value="Numarul schitei" name="text" required/>
+    <input type="date" value="" />
+    <input type="file"/>
   
+    
+    <div>
+      <input type="checkbox" id="terms"/>
+      <label for="terms">Sunt de acord cu termenii</label>
+    </div>
+  
+    <input type="reset"/>
+    <input type="submit"/>
+  
+
+  </form>
+</div>
+<p id="text"></p>
+<p id="nr"></p>
+<a id="link" href="https://www.ysl.com/en-ro/">Go to YSL: https://www.ysl.com/en-ro/</a>
+<div class="box"></div>
+
 </body>
 
 </html>
