@@ -1,74 +1,40 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
 
-const server = http.createServer((req, res) => {
-   console.log(req.url);
+app.use(bodyParser.urlencoded({ extended: false }))
 
-   res.setHeader('Content-Type', 'text/html');
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname));
 
-  
+console.log(__dirname);
 
-   let path = '';
-  switch(req.url) {
-    case '/':
-      path += 'Proiect.html';
-      res.statusCode = 200;
-      break;
-    case '/info':
-      path += 'info.html';
-      res.statusCode = 200;
-      break;
-      case '/articole':
-        path += 'articole.html';
-        res.statusCode = 200;
-        break;
-    case '/about-us':
-      res.statusCode = 301;
-      res.setHeader('Location', '/Proiect');
-      res.end();
-      break;
-    default:
-      path += '404.html';
-      res.statusCode = 404;
-  }
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'Proiect.html'));
+  console.log(path.join(__dirname, 'Proiect.html'));
+});
 
-   fs.readFile(path, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end();
-    }
-     res.end(data);
+  app.get('/info', function (req, res) {
+    res.sendFile(path.join(__dirname, 'info.html'));
   });
 
+  app.get('/articole', function (req, res) {
+    res.sendFile(path.join(__dirname, 'articole.html'));  
+  });
 
-});
+  app.get('/cariera', function (req, res) {
+    res.sendFile(path.join(__dirname, 'cariera.html'));
+  });
 
-const express = require('express');
+ 
 
- const app = express();
-
- app.listen(3000);
- //app.use(express.static(__dirname + '/public'));
-
-
-app.get('/', (req, res) => {
-   res.sendFile('./Proiect.html', { root: __dirname });
-});
-
-app.get('/cariera', (req, res) => {
-  // res.send('<p>about page</p>');
-  res.sendFile('.cariera.html', { root: __dirname });
-});
-
-// redirects
-app.get('info', (req, res) => {
-  res.redirect('/info');
-});
-
- app.use((req, res) => {
-  res.status(404).sendFile('./404.html', { root: __dirname });
-});
-
- server.listen(3000, 'localhost', () => {
-  console.log('listening for requests on port 3000');
-});
+app.post('/', function (req, res) {
+    const { nume, prenume, email } = req.body;
+    res.send(`Salut, ${nume} ${prenume}! Multumim pentru observatie!`);
+  });
+  
+  app.use((req, res) => {
+    res.status(404).sendFile('./404.html', { root: __dirname });
+  });
+app.listen(3000);
