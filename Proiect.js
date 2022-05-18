@@ -130,3 +130,4 @@ function numar() {
         return false;
     }
 }
+ 
