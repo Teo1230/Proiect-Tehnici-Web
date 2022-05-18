@@ -26,14 +26,6 @@ app.get('/', function (req, res) {
   app.get('/cariera', function (req, res) {
     res.sendFile(path.join(__dirname, 'cariera.html'));
   });
-
- 
-
-app.post('/', function (req, res) {
-    const { nume, prenume, email } = req.body;
-    res.send(`Salut, ${nume} ${prenume}! Multumim pentru observatie!`);
-  });
-  
   app.use((req, res) => {
     res.status(404).sendFile('./404.html', { root: __dirname });
   });
